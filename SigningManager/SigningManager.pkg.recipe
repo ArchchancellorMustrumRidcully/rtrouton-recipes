@@ -3,26 +3,26 @@
 <plist version="1.0">
    <dict>
       <key>Description</key>
-      <string>Downloads the latest version of the Microsoft Defender ATP installer package and renames the package.</string>
+      <string>Downloads the latest version of the Signing Manager installer package and renames the package.</string>
       <key>Identifier</key>
-      <string>com.github.rtrouton.pkg.microsoftdefenderatp</string>
+      <string>com.github.rtrouton.pkg.signingmanager</string>
       <key>Input</key>
       <dict>
          <key>NAME</key>
-         <string>Microsoft Defender ATP</string>
+         <string>Signing Manager</string>
          <key>VENDOR</key>
-         <string>Microsoft</string>
-         <key>SOFTWARETITLE</key>
-         <string>Defender</string>
-         <key>SOFTWARETYPE</key>
-         <string>ATP</string>
+         <string>Twocanoes</string>
+         <key>SOFTWARETITLE1</key>
+         <string>Signing</string>
+         <key>SOFTWARETITLE2</key>
+         <string>Manager</string>
          <key>VERSIONTYPE</key>
          <string>CFBundleShortVersionString</string>
       </dict>
       <key>MinimumVersion</key>
       <string>1.0.0</string>
       <key>ParentRecipe</key>
-      <string>com.github.rtrouton.download.microsoftdefenderatp</string>
+      <string>com.github.rtrouton.download.signingmanager</string>
       <key>Process</key>
       <array>
          <dict>
@@ -31,7 +31,7 @@
                <key>destination_path</key>
                <string>%RECIPE_CACHE_DIR%/downloads/unpack</string>
                <key>flat_pkg_path</key>
-               <string>%pathname%</string>
+               <string>%pathname%/Signing Manager.pkg</string>
             </dict>
             <key>Processor</key>
             <string>FlatPkgUnpacker</string>
@@ -40,7 +40,7 @@
             <key>Arguments</key>
             <dict>
                <key>pattern</key>
-               <string>%RECIPE_CACHE_DIR%/downloads/unpack/*wdav*.pkg</string>
+               <string>%RECIPE_CACHE_DIR%/downloads/unpack/*Signing*.pkg</string>
             </dict>
             <key>Processor</key>
             <string>FileFinder</string>
@@ -60,7 +60,7 @@
             <key>Arguments</key>
             <dict>
                <key>input_plist_path</key>
-               <string>%RECIPE_CACHE_DIR%/downloads/payload/Microsoft Defender.app/Contents/Info.plist</string>
+               <string>%RECIPE_CACHE_DIR%/downloads/payload/Applications/Signing Manager.app/Contents/Info.plist</string>
                <key>plist_version_key</key>
                <string>%VERSIONTYPE%</string>
             </dict>
@@ -73,9 +73,9 @@
             <key>Arguments</key>
             <dict>
                <key>source_pkg</key>
-               <string>%pathname%</string>
+               <string>%pathname%/Signing Manager.pkg</string>
                <key>pkg_path</key>
-               <string>%RECIPE_CACHE_DIR%/%VENDOR%_%SOFTWARETITLE%_%SOFTWARETYPE%_%version%.pkg</string>
+               <string>%RECIPE_CACHE_DIR%/%VENDOR%_%SOFTWARETITLE1%_%SOFTWARETITLE2%_%version%.pkg</string>
             </dict>
          </dict>
          <dict>
