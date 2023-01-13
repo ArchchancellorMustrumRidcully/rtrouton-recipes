@@ -3,11 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads latest Endnote 20 installer and imports it into munki.</string>
+	<string>Downloads latest Endnote 20 installer and imports it into munki.
+
+Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_version via MunkiInstallsItemsCreator. This requires a minimum AutoPkg version of 2.7 please update if you're not already running it.</string>
 	<key>Identifier</key>
 	<string>com.github.rtrouton.munki.EndNote20</string>
 	<key>Input</key>
 	<dict>
+		<key>DERIVE_MIN_OS</key>
+		<string>YES</string>
 		<key>DEFAULT_CATALOG</key>
 		<string>testing</string>
 		<key>MUNKI_REPO_SUBDIR</key>
@@ -28,8 +32,6 @@
 			<string>Thomson Reuters</string>
 			<key>display_name</key>
 			<string>EndNote 20</string>
-			<key>minimum_os_version</key>
-			<string>10.10.0</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -87,7 +89,7 @@ done
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>1.0.0</string>
+	<string>2.7</string>
 	<key>ParentRecipe</key>
 	<string>com.github.rtrouton.pkg.EndNote20</string>
 	<key>Process</key>
@@ -118,6 +120,17 @@ done
 				<true/>
 			</dict>
 		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>FileMover</string>
+			<key>Arguments</key>
+			<dict>
+				<key>source</key>
+				<string>%RECIPE_CACHE_DIR%/Applications/EndNote</string>
+				<key>target</key>
+				<string>%RECIPE_CACHE_DIR%/Applications/EndNote 20</string>
+			</dict>
+		</dict>
         <dict>
             <key>Processor</key>
             <string>MunkiInstallsItemsCreator</string>
@@ -127,10 +140,12 @@ done
                 <string>%RECIPE_CACHE_DIR%</string>
                 <key>installs_item_paths</key>
                 <array>
-                    <string>/Applications/EndNote/EndNote 20.app</string>
+                    <string>/Applications/EndNote 20/EndNote 20.app</string>
                 </array>
                 <key>version_comparison_key</key>
                 <string>CFBundleShortVersionString</string>
+                <key>derive_minimum_os_version</key>
+                <string>%DERIVE_MIN_OS%</string>
             </dict>
         </dict>
         <dict>
