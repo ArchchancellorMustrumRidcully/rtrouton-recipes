@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest VMware Horizon Client disk image, extracts the installer package and installs it.</string>
+    <string>Downloads the latest version of Microsoft's Teams installer package and installs it.</string>
     <key>Identifier</key>
-    <string>com.github.rtrouton.install.VMwareHorizonClient</string>
+    <string>com.github.rtrouton.install.microsoftteamsclassic</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>VMwareHorizonClient</string>
+        <string>Microsoft Teams</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.4.2</string>
+    <string>1.0.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.rtrouton.pkg.VMwareHorizonClient</string>
+    <string>com.github.rtrouton.pkg.microsoftteamsclassic</string>
     <key>Process</key>
     <array>
         <dict>

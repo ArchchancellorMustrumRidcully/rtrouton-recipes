@@ -3,19 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest version of GraphPad Prism.</string>
+	<string>Downloads the latest version of EndNote 21 for Mac</string>
 	<key>Identifier</key>
-	<string>com.github.rtrouton.download.Prism</string>
+	<string>com.github.rtrouton.download.EndNote21</string>
 	<key>Input</key>
 	<dict>
-		<key>MAJOR_VERSION</key>
-		<string>10</string>
-		<key>APP_FILENAME</key>
-		<string>Prism %MAJOR_VERSION%</string>
-		<key>DOWNLOAD_BASE_URL</key>
-		<string>https://cdn.graphpad.com/downloads/prism</string>
+		<key>DOWNLOAD_URL</key>
+		<string>https://download.endnote.com/downloads/21/EndNote21Installer.dmg</string>
 		<key>NAME</key>
-		<string>Prism</string>
+		<string>EndNote 21</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
@@ -27,7 +23,7 @@
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 				<key>url</key>
-				<string>%DOWNLOAD_BASE_URL%/%MAJOR_VERSION%/InstallPrism%MAJOR_VERSION%.dmg</string>
+				<string>%DOWNLOAD_URL%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -40,7 +36,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%pathname%/%APP_FILENAME%.app/Contents/Info.plist</string>
+				<string>%pathname%/Install EndNote 21.app/Contents/Info.plist</string>
 				<key>plist_version_key</key>
 				<string>CFBundleShortVersionString</string>
 			</dict>
@@ -53,9 +49,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/%APP_FILENAME%.app</string>
+				<string>%pathname%/Install EndNote 21.app</string>
 				<key>requirement</key>
-				<string>anchor apple generic and identifier "com.GraphPad.Prism" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "YQ2D36NS9M")</string>
+				<string>anchor apple generic and identifier "com.ThomsonResearchSoft.EndNote.Installer" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2Y4P62NL52")</string>
 			</dict>
 		</dict>
 	</array>

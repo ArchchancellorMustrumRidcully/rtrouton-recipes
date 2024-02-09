@@ -3,13 +3,19 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of CrashPlan.</string>
+    <string>Downloads the latest version of NexThink Collector.</string>
     <key>Identifier</key>
-    <string>com.github.rtrouton.download.CrashplanForEnterprise</string>
+    <string>com.github.rtrouton.download.NexThinkCollector</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Crashplan</string>
+        <string>NexThink Collector</string>
+        <key>DOWNLOAD_URL</key>
+        <string>https://download.nexthink.com/releases/latest/OSX_Collector/Nexthink_Collector.dmg</string>
+         <key>VENDOR</key>
+         <string>NexThink</string>
+         <key>SOFTWARETITLE</key>
+         <string>Collector</string>
     </dict>
     <key>MinimumVersion</key>
     <string>2.0.0</string>
@@ -21,15 +27,28 @@
             <key>Arguments</key>
             <dict>
                 <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>%VENDOR%%SOFTWARETITLE%.dmg</string>
                 <key>url</key>
-                <string>https://download.crashplan.com/installs/agent/latest-mac.dmg</string>
+                <string>%DOWNLOAD_URL%</string>
             </dict>
         </dict>
         <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
         </dict>
+         <dict>
+            <key>Comment</key>
+            <string>Get version from the installer application</string>
+            <key>Processor</key>
+            <string>Versioner</string>
+            <key>Arguments</key>
+            <dict>
+               <key>input_plist_path</key>
+               <string>%pathname%/csi.app/Contents/Info.plist</string>
+               <key>plist_version_key</key>
+               <string>CFBundleVersion</string>
+            </dict>
+         </dict>
         <dict>
             <key>Processor</key>
             <string>CodeSignatureVerifier</string>
@@ -37,12 +56,12 @@
             <dict>
                 <key>expected_authority_names</key>
                 <array>
-                    <string>Developer ID Installer: CrashPlan Group, LLC (UGHXR79U6M)</string>
+                    <string>Developer ID Installer: Nexthink SA (PDEKAZ43QL)</string>
                     <string>Developer ID Certification Authority</string>
                     <string>Apple Root CA</string>
                 </array>
                 <key>input_path</key>
-                <string>%pathname%/Install CrashPlan.pkg</string>
+                <string>%pathname%/Nexthink_Collector.pkg</string>
             </dict>
         </dict>
     </array>

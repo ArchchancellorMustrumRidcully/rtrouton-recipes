@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest VMware Horizon Client disk image, extracts the installer package and installs it.</string>
+    <string>Downloads the current release version of Backgrounds.app, builds a package and installs it.</string>
     <key>Identifier</key>
-    <string>com.github.rtrouton.install.VMwareHorizonClient</string>
+    <string>com.github.rtrouton.install.backgrounds</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>VMwareHorizonClient</string>
+        <string>Backgrounds</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.4.2</string>
+    <string>1.0.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.rtrouton.pkg.VMwareHorizonClient</string>
+    <string>com.github.rtrouton.pkg.backgrounds</string>
     <key>Process</key>
     <array>
         <dict>
