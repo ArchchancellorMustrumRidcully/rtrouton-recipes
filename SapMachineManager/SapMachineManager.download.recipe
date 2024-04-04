@@ -3,27 +3,19 @@
 <plist version="1.0">
    <dict>
       <key>Description</key>
-      <string>Downloads the latest Microsoft Office 365 Business Pro Suite SKU-less installer package.</string>
+      <string>Downloads the current release of SapMachine Manager.app from the sapmachine-manager-for-macos release page on Github: https://github.com/SAP/sapmachine-manager-for-macos/releases</string>
       <key>Identifier</key>
-      <string>com.github.rtrouton.download.MicrosoftOffice365BusinessProSuite</string>
+      <string>com.github.rtrouton.download.SapMachineManager</string>
       <key>Input</key>
       <dict>
          <key>NAME</key>
-         <string>Microsoft Office 365 Business Pro Suite</string>
+         <string>SapMachine Manager</string>
          <key>VENDOR</key>
-         <string>Microsoft</string>
+         <string>SAP</string>
          <key>SOFTWARETITLE1</key>
-         <string>Office</string>
+         <string>SapMachine</string>
          <key>SOFTWARETITLE2</key>
-         <string>Business</string>
-         <key>SOFTWARETITLE3</key>
-         <string>Pro</string>
-         <key>SOFTWARETITLE4</key>
-         <string>Suite</string>
-         <key>ID</key>
-         <string>2009112</string>
-         <key>DOWNLOAD_URL_BASE</key>
-         <string>https://go.microsoft.com/fwlink/?linkid=</string>
+         <string>Manager</string>
       </dict>
       <key>MinimumVersion</key>
       <string>1.0.0</string>
@@ -31,15 +23,11 @@
       <array>
          <dict>
             <key>Processor</key>
-            <string>URLTextSearcher</string>
+            <string>GitHubReleasesInfoProvider</string>
             <key>Arguments</key>
             <dict>
-               <key>re_pattern</key>
-               <string>Version (\*|\d+(\.\d+){0,2}(\.\*)?)</string>
-               <key>url</key>
-               <string>https://learn.microsoft.com/en-us/officeupdates/release-notes-office-for-mac</string>
-               <key>result_output_var_name</key>
-               <string>version</string>
+               <key>github_repo</key>
+               <string>sap/sapmachine-manager-for-macos</string>
             </dict>
          </dict>
          <dict>
@@ -47,10 +35,8 @@
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
-               <key>url</key>
-               <string>%DOWNLOAD_URL_BASE%%ID%</string>
                <key>filename</key>
-               <string>%VENDOR%_%SOFTWARETITLE1%_%SOFTWARETITLE2%_%SOFTWARETITLE3%_%SOFTWARETITLE4%_%version%.pkg</string>
+               <string>%VENDOR%-%SOFTWARETITLE1%-%SOFTWARETITLE2%-%version%.pkg</string>
             </dict>
          </dict>
          <dict>
@@ -66,7 +52,7 @@
                <string>%pathname%</string>
                <key>expected_authority_names</key>
                <array>
-                  <string>Developer ID Installer: Microsoft Corporation (UBF8T346G9)</string>
+                  <string>Developer ID Installer: SAP SE (7R5ZEU67FQ)</string>
                   <string>Developer ID Certification Authority</string>
                   <string>Apple Root CA</string>
                </array>
